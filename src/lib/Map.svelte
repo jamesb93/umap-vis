@@ -9,7 +9,7 @@
     let height = 450;
     let width = 450;
     let interval;
-    let stepInterval = 10;
+    let stepInterval = 3;
     let go = true;
     // Animation Code
     let camera, scene, renderer;
@@ -24,10 +24,10 @@
     const r = 4000;
 
     // UMAP params
-    let neighbors = 2;
+    let neighbors = 10;
     let minDist = 0.3;
     let epochs = 500; 
-
+    let spread = 1.0;
 
     // Data
     let epoch = 0;
@@ -38,7 +38,8 @@
         'nComponents' : 3,
         'nEpochs' : epochs,
         'minDist' : minDist,
-        'nNeighbors' : neighbors
+        'nNeighbors' : neighbors,
+        'spread' : spread
     });
 
     let numEpochs = umap.initializeFit(data);
@@ -185,6 +186,7 @@
         <Slider bind:value={epochs} title="Epochs" min="50" max="2000" step="1" chFunc={doStep}/>
         <Slider bind:value={minDist} title="Minimum Distance" min="0.01" max="100" step="0.01" chFunc={doStep}/>
         <Slider bind:value={neighbors} title="Number of Neighbours" min="1" max="100" step="1" chFunc={doStep}/>
+        <!-- <Slider bind:value={spread} title="Spread" min="0" max="1" step="0.01" chFunc={doStep}/> -->
     </div>
 </div>
 <style>
