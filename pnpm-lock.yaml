@@ -1,6 +1,8 @@
 dependencies:
   compression: 1.7.4
   d3: 6.6.2
+  ml-hclust: 3.0.0
+  ml-pca: 4.0.1
   polka: 1.0.0-next.13
   sirv: 1.0.11
   three: 0.127.0
@@ -1635,6 +1637,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+  /heap/0.2.6:
+    dev: false
+    resolution:
+      integrity: sha1-CH4fELBGky/IWU3Z5tN4r8nR5aw=
   /html-minifier/4.0.0:
     dependencies:
       camel-case: 3.0.0
@@ -1818,6 +1824,23 @@ packages:
     dev: false
     resolution:
       integrity: sha512-czK+faN7kYrF48SgVQeXGkxUjDEas6BA4EzF4jJNh8UEtzpSvHW3RllZCJCCyrAqeFc+Y/LhgYUzuHFpevM3qA==
+  /ml-distance-euclidean/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-yC9/2o8QF0A3m/0IXqCTXCzz2pNEzvmcE/9HFKOZGnTjatvBbsn4lWYJkxENkA4Ug2fnYl7PXQxnPi21sgMy/Q==
+  /ml-distance-matrix/2.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-6wt3bvK8WzAjyuBt9+wnyGanphrAZyqJGwiEEfuknfu8IQBtHYWpyLhjtQ8R7rjiPyXlF9eP7GcI5L7OA1NLEQ==
+  /ml-hclust/3.0.0:
+    dependencies:
+      heap: 0.2.6
+      ml-distance-euclidean: 2.0.0
+      ml-distance-matrix: 2.0.1
+      ml-matrix: 6.7.0
+    dev: false
+    resolution:
+      integrity: sha512-iv4wjDyrYSlCazNLfW7jqrFmFRPhtd90eW/cfUQ/HKq6S8bh1V6XbXh90mgyX3c7vkUt7NOKtJwM7ialw8PdqQ==
   /ml-levenberg-marquardt/2.1.1:
     dependencies:
       is-any-array: 0.1.1
@@ -1831,6 +1854,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4VWuvApdpkVLXdqSLimgLsMmV9xm5lee4BLhGIM1WsdyJZz/HN/WxAYyI3xCDSo4o7umiHW8lj71loOuneUQFQ==
+  /ml-pca/4.0.1:
+    dependencies:
+      ml-matrix: 6.7.0
+    dev: false
+    resolution:
+      integrity: sha512-Pf+XrVtXehEbCmSw2QLa3BvZOICBrke7szizlcF6gh7up5b6+Muu/bEEy3NXvzMHMun8QFokHeV9KLctc5++dQ==
   /ms/2.0.0:
     dev: false
     resolution:
@@ -2248,6 +2277,8 @@ specifiers:
   '@rollup/plugin-url': ^5.0.0
   compression: ^1.7.1
   d3: ^6.6.2
+  ml-hclust: ^3.0.0
+  ml-pca: ^4.0.1
   polka: next
   rollup: ^2.3.4
   rollup-plugin-svelte: ^7.0.0

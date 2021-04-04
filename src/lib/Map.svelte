@@ -186,7 +186,7 @@
         <Slider bind:value={epochs} title="Epochs" min="50" max="2000" step="1" chFunc={doStep}/>
         <Slider bind:value={minDist} title="Minimum Distance" min="0.01" max="100" step="0.01" chFunc={doStep}/>
         <Slider bind:value={neighbors} title="Number of Neighbours" min="1" max="100" step="1" chFunc={doStep}/>
-        <!-- <Slider bind:value={spread} title="Spread" min="0" max="1" step="0.01" chFunc={doStep}/> -->
+        <Slider bind:value={spread} title="Spread" min="0" max="100" step="0.01" chFunc={doStep}/>
     </div>
 </div>
 <style>
