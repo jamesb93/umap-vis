@@ -17,10 +17,7 @@
     let particles;
     let particlePositions;
     let positions;
-    let colors;
-    let linesMesh;
     let pointCloud;
-    let scale = 1;
     const r = 4000;
 
     // UMAP params
@@ -112,9 +109,9 @@
     const animate = () => {
 
         data.forEach((d, i) => {
-            const x = r * d[0] - (r / 2);
-            const y = r * d[1] - (r / 2);
-            const z = r * d[2] - (r / 2);
+            const x = r * d[0] - (r / 4);
+            const y = r * d[1] - (r / 4);
+            const z = r * d[2] - (r / 4);
             
             particlePositions[ i * 3 ] = x;
             particlePositions[ i * 3 + 1 ] = y;
@@ -162,12 +159,14 @@
     const doStep = () => {
         epoch = 0;
         go = true;
+        umap = null;
         umap = new UMAP({
             'nComponents' : 3,
             'nEpochs' : epochs,
             'minDist' : minDist,
             'nNeighbors' : neighbors
         });
+        console.log(umap);
         numEpochs = umap.initializeFit(data);
         step()
     }
@@ -184,9 +183,9 @@
         <span>Epoch: {epoch}</span>
         <Slider bind:value={stepInterval} title="Interval" min="1" max="100" step="1"/>
         <Slider bind:value={epochs} title="Epochs" min="50" max="2000" step="1" chFunc={doStep}/>
-        <Slider bind:value={minDist} title="Minimum Distance" min="0.01" max="100" step="0.01" chFunc={doStep}/>
-        <Slider bind:value={neighbors} title="Number of Neighbours" min="1" max="100" step="1" chFunc={doStep}/>
-        <Slider bind:value={spread} title="Spread" min="0" max="100" step="0.01" chFunc={doStep}/>
+        <Slider bind:value={minDist} title="Minimum Distance" min="0.0" max="1" step="0.001" chFunc={doStep}/>
+        <Slider bind:value={neighbors} title="Number of Neighbours" min="3" max="99" step="1" chFunc={doStep}/>
+        <Slider bind:value={spread} title="Spread" min="0" max="1" step="0.001" chFunc={doStep}/>
     </div>
 </div>
 <style>
