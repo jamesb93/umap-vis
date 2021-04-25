@@ -8,7 +8,6 @@
     let container;
     let height = 450;
     let width = 450;
-    let interval;
     let stepInterval = 3;
     let go = true;
     // Animation Code
@@ -159,14 +158,13 @@
     const doStep = () => {
         epoch = 0;
         go = true;
-        umap = null;
         umap = new UMAP({
             'nComponents' : 3,
             'nEpochs' : epochs,
             'minDist' : minDist,
             'nNeighbors' : neighbors
         });
-        console.log(umap);
+        data = data.map(x => x.map(y => Math.random()));
         numEpochs = umap.initializeFit(data);
         step()
     }
